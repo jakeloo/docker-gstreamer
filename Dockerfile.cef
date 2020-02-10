@@ -1,0 +1,22 @@
+FROM gstreamer:base
+
+WORKDIR /gstreamer
+
+RUN apt-get update && apt-get -y install \
+      libatk1.0-dev libxv-dev libxdo-dev libxgks-dev libatk-bridge2.0-dev libfontconfig1-dev \
+      libxcomposite-dev libxrender-dev libxcursor-dev libxss-dev libxrandr-dev \
+      libasound2-dev libnss3-dev libnss3-tools libnspr4-dev
+
+ARG GST_CEF_VERSION=master
+RUN git clone https://github.com/jakeloo/gstcefsrc.git && \
+      cd gstcefsrc && \
+      git checkout $GST_CEF_VERSION && \
+      mkdir build && \
+      cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -S . -B build && \
+      ninja -C build
+
+# register cef plugin path
+ENV GST_PLUGIN_PATH=/gstreamer/gstcefsrc/build/Release:$GST_PLUGIN_PATH
+
+# xvfb display
+ENV DISPLAY=:0
