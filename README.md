@@ -6,11 +6,11 @@ It builds `glib`, `gobject-introspection` and `gstreamer`.
 ### Version
 `os: ubuntu:20.04` (focal)
 
-`glib: 2.59.0`
+`glib: 2.64.4`
 
-`gobject-introspection: 1.59.5`
+`gobject-introspection: 1.64.1`
 
-`gstreamer: 1.16.2`
+`gstreamer: 1.17.2`
 
 
 ### Run
