@@ -58,8 +58,7 @@ RUN cd ./gst-build/gst-build-$GST_VERSION && \
         -Dgst-plugins-bad:nvdec=disabled \
         -Dgi=disabled \
         -Dpython=enabled \
-        -Dpygobject=enabled \
-        -Dpygobject:pycairo=false
+        -Dpygobject=enabled
 
 RUN cd ./gst-build/gst-build-$GST_VERSION && \
     ninja -C build install
