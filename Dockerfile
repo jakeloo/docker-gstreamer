@@ -6,8 +6,8 @@ ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update && apt-get -y install \
       python3.8 python3.8-dev python3-distutils python3-pip \
       libmount-dev bison flex pkg-config autotools-dev libffi-dev \
-      librtmp-dev libx264-dev libsoup2.4-1 libsoup2.4-dev libpng-dev \
-      build-essential ninja-build git xvfb cmake
+      librtmp-dev libx264-dev libsoup2.4-1 libsoup2.4-dev libpng-dev libopencv-dev \
+      build-essential ninja-build git xvfb cmake curl
 
 # nvidia gpu support
 # ENV NVIDIA_DRIVER_CAPABILITIES=all
